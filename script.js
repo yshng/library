@@ -28,9 +28,11 @@ console.log(myLibrary[0].info());
 const container = document.querySelector("main");
 
 function populate() {
+    myLibrary.forEach((book) => {generateBook(book)})
+}
 
-    myLibrary.forEach((book) => {
 
+function generateBook(book) {
     const newBook = document.createElement("div");
     newBook.classList.add("book");
 
@@ -49,28 +51,19 @@ function populate() {
     newPageCount.textContent = String(book.pages);
     newBook.appendChild(newPageCount);
 
-    if (container !== null) {
-        container.appendChild(newBook);
-    }
-
     const newRead = document.createElement("button");
     newRead.textContent = book.read ? newRead.classList.add("status","read") : newRead.classList.add("status","unread");
     newBook.appendChild(newRead);
 
-    // add something here to turn an icon on and off for having read book
-
+    newRead.addEventListener("click", () => {
+        const classes = newRead.classList;
+        classes.toggle("read");
+        classes.toggle("unread");
     })
-}
 
-function toggleRead() {
-    const buttons = document.querySelectorAll(".status");
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const classes = button.classList;
-            classes.toggle("read");
-            classes.toggle("unread");
-        })
-    })
+    if (container !== null) {
+        container.appendChild(newBook);
+    }
 }
 
 const addButton = document.querySelector("#add-button");
@@ -87,5 +80,18 @@ cancelButton.addEventListener("click", () => {
   dialog.close();
 });
 
+const submitButton = document.querySelector("#submit");
+submitButton.addEventListener("click", () => {
+    const title = document.querySelector("#title");
+    const author = document.querySelector("#author");
+    const pages = document.querySelector("#pages");
+    const read = document.querySelector("#read");
+    const form = document.querySelector("#book-form");
+
+    const newBook = new Book(title.value, author.value, pages.value, read.checked);
+    addBookToLibrary(newBook); 
+    generateBook(newBook);   
+    form.reset();
+})
+
 populate();
-toggleRead();
