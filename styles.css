@@ -7,19 +7,49 @@
 :root {
     font-family: system-ui, sans-serif;
     font-size: 12px;
+    --highlight-color: #f6e9ac;
 }
 
-#container {
+header, main {
     display: flex;
     flex-wrap: wrap;
+    width: 80vw;
     max-width: 800px;
-    gap: .5rem;
-    margin: 3rem auto;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+main {
+    justify-content: flex-start;
+    gap: .8rem;
+}
+
+header {
+    padding-top: 3rem;
+    padding-right: .5rem;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
 h1 {
-    flex: 1 1 100%;
-    font-size: 3em;
+    font-size: 3rem;
+}
+
+#add-button {
+    font-size: 1.2em;
+    height: 2em;
+    font-weight: 800;
+    border-radius: 10px;
+    border: none;
+    padding: 0 2em;
+    background-color: #b1dfae;
+
+}
+
+#add-button:hover {
+    box-shadow: 0 0 1px 1px rgb(0 0 0 / 10%);
+    border: 1px solid rgb(0 0 0 / 10%);
 }
 
 h2 {
@@ -41,8 +71,7 @@ h3 {
 }
 
 .book:hover {
-    background-color: #f6e9ac;
-    
+    background-color: var(--highlight-color);
 }
 
 .pages {

@@ -25,7 +25,7 @@ addBookToLibrary(new Book("Tarrying with the Negative (Again)", "Slavoj Zizek", 
 
 console.log(myLibrary[0].info());
 
-const container = document.querySelector("#container");
+const container = document.querySelector("main");
 
 function populate() {
 
