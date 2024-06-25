@@ -16,13 +16,16 @@
         
     </main>
     <dialog id="book-dialog">
+        <p class="dialog-head">Add a book to your library:</p>
         <form id="book-form" method="dialog">
-            <label for="title"><input id="title" type="text"></label>
-            <label for="author"><input id="author" type="text"></label>
-            <label for="pages"><input id="pages" type="phone"></label>
-            <label for="read">Read?</label><input id="read" type="checkbox">
-            <button type="submit">Add book</button>
-            <button id="cancel">Cancel</button>
+            <div class="row"><label for="title">Title</label><input id="title" type="text"></div>
+            <div class="row"><label for="author">Author</label><input id="author" type="text">    </div>        
+            <div class="row"><label for="pages"># of Pages</label><input id="pages" type="phone"></div>
+            <div class="row"><label for="read">Read?</label><input id="read" type="checkbox"></div>
+            <div class="row">
+                <button type="submit">Add book</button>
+                <button id="cancel">Cancel</button>
+            </div>
         </form>
     </dialog>
 </body>
