@@ -88,12 +88,20 @@ h3 {
     content: " pages";
 }
 
-.read {
+.unread, .read {
     border: none;
     padding: 1em 0;
     background: none;
 }
 
-.read:hover{
+.unread::after {
+    content: "Unread";
+}
+
+.read::after {
+    content: "Read";
+}
+
+.unread:hover, .read:hover{
     font-weight: 500;
 }

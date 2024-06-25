@@ -54,8 +54,7 @@ function populate() {
     }
 
     const newRead = document.createElement("button");
-    newRead.classList.add("read");
-    newRead.textContent = book.read ? "Read" : "Unread";
+    newRead.textContent = book.read ? newRead.classList.add("status","read") : newRead.classList.add("status","unread");
     newBook.appendChild(newRead);
 
     // add something here to turn an icon on and off for having read book
@@ -64,17 +63,29 @@ function populate() {
 }
 
 function toggleRead() {
-    const buttons = document.querySelectorAll(".read");
+    const buttons = document.querySelectorAll(".status");
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            if (button.textContent === "Read") {
-                button.textContent = "Unread";
-            } else {
-                button.textContent = "Read";
-            }
+            const classes = button.classList;
+            classes.toggle("read");
+            classes.toggle("unread");
         })
     })
 }
+
+const addButton = document.querySelector("#add-button");
+const cancelButton = document.querySelector("#cancel");
+const dialog = document.querySelector("#book-dialog");
+
+// Update button opens a modal dialog
+addButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// Form cancel button closes the dialog box
+cancelButton.addEventListener("click", () => {
+  dialog.close();
+});
 
 populate();
 toggleRead();
