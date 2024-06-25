@@ -40,6 +40,11 @@ h3 {
     padding-top: 10%;
 }
 
+.book:hover {
+    background-color: #f6e9ac;
+    
+}
+
 .pages {
     padding-top: 1em;
 }
