@@ -21,7 +21,7 @@ header, main {
 
 main {
     justify-content: flex-start;
-    gap: .8rem;
+    gap: 1%;
 }
 
 header {
@@ -30,6 +30,11 @@ header {
     align-items: center;
     justify-content: space-between;
 
+}
+
+button {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
 }
 
 h1 {
@@ -68,6 +73,7 @@ h3 {
     border: 1px solid black;
     text-align: center;
     padding-top: 10%;
+    margin-top: 1em;
 }
 
 .book:hover {
@@ -82,3 +88,12 @@ h3 {
     content: " pages";
 }
 
+.read {
+    border: none;
+    padding: 1em 0;
+    background: none;
+}
+
+.read:hover{
+    font-weight: 500;
+}

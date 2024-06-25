@@ -16,12 +16,12 @@ function addBookToLibrary(Book) {
 }
 
 addBookToLibrary(new Book("The Clerk's Tale", "Thomas Augst", 126, false));
-addBookToLibrary(new Book("Winnie the Pooh", "A. A. Milne", 120, false));
-addBookToLibrary(new Book("Dog's First Baby", "Unknown Author", 10, false));
+addBookToLibrary(new Book("Winnie the Pooh", "A. A. Milne", 120, true));
+addBookToLibrary(new Book("Dog's First Baby", "Natalie Nelson", 10, false));
 addBookToLibrary(new Book("Tarrying with the Negative", "Slavoj Zizek", 253, false));
-addBookToLibrary(new Book("The Clerk's Tale 2: Electric Boogaloo", "Thomas Augst", 236, false));
-addBookToLibrary(new Book("Dog's Second Baby", "Unknown Author", 12, false));
-addBookToLibrary(new Book("Tarrying with the Negative (Again)", "Slavoj Zizek", 329, false));
+addBookToLibrary(new Book("The Clerk's Tale 2: Electric Boogaloo", "Tom August", 236, false));
+addBookToLibrary(new Book("Dog's Second Baby", "Matalie Melson", 12, false));
+addBookToLibrary(new Book("Quickly Moving On from the Negative", "Zlavoj Sisek", 129, true));
 
 console.log(myLibrary[0].info());
 
@@ -53,9 +53,28 @@ function populate() {
         container.appendChild(newBook);
     }
 
+    const newRead = document.createElement("button");
+    newRead.classList.add("read");
+    newRead.textContent = book.read ? "Read" : "Unread";
+    newBook.appendChild(newRead);
+
     // add something here to turn an icon on and off for having read book
 
     })
 }
 
+function toggleRead() {
+    const buttons = document.querySelectorAll(".read");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            if (button.textContent === "Read") {
+                button.textContent = "Unread";
+            } else {
+                button.textContent = "Read";
+            }
+        })
+    })
+}
+
 populate();
+toggleRead();
