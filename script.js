@@ -1,4 +1,5 @@
 "use strict";
+let bookID = 0;
 const myLibrary = [];
 function Book(title, author, pages, read) {
     this.title = title;
@@ -31,7 +32,6 @@ function populate() {
     myLibrary.forEach((book) => {generateBook(book)})
 }
 
-
 function generateBook(book) {
     const newBook = document.createElement("div");
     newBook.classList.add("book");
@@ -59,7 +59,17 @@ function generateBook(book) {
         const classes = newRead.classList;
         classes.toggle("read");
         classes.toggle("unread");
+        book.read ? book.read = false : book.read = true;
     })
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete");
+    deleteButton.addEventListener("click", () => {
+        myLibrary.splice(myLibrary.indexOf(book),1);
+        newBook.remove();
+    })
+    newBook.appendChild(deleteButton);
+
 
     if (container !== null) {
         container.appendChild(newBook);
