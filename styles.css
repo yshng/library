@@ -9,6 +9,7 @@
     font-size: 12px;
     --highlight-color: #f6e9ac;
     --field-color: #dfd1e4;
+    --add-color: #b1dfae;
 }
 
 button {
@@ -61,7 +62,7 @@ h1 {
     border-radius: 10px;
     border: none;
     padding: 0 2em;
-    background-color: #b1dfae;
+    background-color: var(--add-color);
 
 }
 
@@ -179,4 +180,14 @@ input[type="checkbox"] {
 
 .dialog-head {
     font-size: 2em;
+}
+
+button#submit, button#cancel {
+    margin-right: 1em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+button#submit:hover, button#cancel:hover {
+    background-color: var(--add-color);
 }
